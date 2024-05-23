@@ -11,7 +11,7 @@ phases:
       - echo "Secret retrieved successfully"
       - export DOCKERHUB_USERNAME=$(echo $DOCKERHUB_SECRET | jq -r '.username')
       - export DOCKERHUB_PASSWORD=$(echo $DOCKERHUB_SECRET | jq -r '.password')
-      - echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
+      - echo $DOCKERHUB_PASSWORD 
       - echo Logging into Amazon ECR started on 'date'
       - aws --version
       - echo Logging into Amazon ECR
