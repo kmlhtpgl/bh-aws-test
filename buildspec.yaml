@@ -1,5 +1,14 @@
 version: 0.2
 phases:
+  install:
+    runtime-versions:
+      docker: 19
+    commands:
+      - echo Logging in to Docker Hub
+      - aws secretsmanager get-secret-value --secret-id dockerHubCredentials --query 'SecretString' --output text > dockerhub_creds.json
+      - export DOCKER_USERNAME=$(cat dockerhub_creds.json | jq -r '.username')
+      - export DOCKER_PASSWORD=$(cat dockerhub_creds.json | jq -r '.password')
+      - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
   pre_build:
     commands:
       - echo Logging into Amazon ECR started on 'date'
