@@ -1,0 +1,11 @@
+
+# ---- Terraform ----
+# Ignore Terraform files in terraform directory
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
+*.tfvars
+
+# Dependency directories
+node_modules/
