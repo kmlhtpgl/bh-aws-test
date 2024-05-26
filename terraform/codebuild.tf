@@ -4,6 +4,7 @@ resource "aws_codebuild_project" "app" {
     type            = "GITHUB"
     location        = var.build_source
     git_clone_depth = 1
+    buildspec = "buildspec.yaml"
   }
   environment {
     compute_type                = var.build_compute
@@ -36,18 +37,31 @@ resource "aws_iam_role" "codebuild" {
   })
 }
 
-resource "aws_iam_role_policy_attachment" "codebuild_attach" {
+resource "aws_iam_role_policy_attachment" "codebuild_attach1" {
   role       = aws_iam_role.codebuild.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPowerUser"
 }
 
-resource "aws_iam_role_policy_attachment" "codebuild_attach" {
+resource "aws_iam_role_policy_attachment" "codebuild_attach2" {
   role       = aws_iam_role.codebuild.name
   policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess"
 }
 
-resource "aws_iam_role_policy_attachment" "codebuild_attach" {
+resource "aws_iam_role_policy_attachment" "codebuild_attach3" {
   role       = aws_iam_role.codebuild.name
   policy_arn = "arn:aws:iam::aws:policy/SecretsManagerReadWrite"
 }
+
+resource "aws_iam_role_policy_attachment" "codebuild_attach4" {
+  role       = aws_iam_role.codebuild.name
+  policy_arn = "arn:aws:iam::992382529210:policy/service-role/CodeBuildBasePolicy-bh-app-us-east-1"
+}
+
+resource "aws_iam_role_policy_attachment" "codebuild_attach5" {
+  role       = aws_iam_role.codebuild.name
+  policy_arn = "arn:aws:iam::992382529210:policy/service-role/CodeBuildCloudWatchLogsPolicy-bh-app-us-east-1"
+}
+
+
+
 

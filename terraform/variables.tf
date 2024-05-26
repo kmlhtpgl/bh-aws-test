@@ -1,4 +1,4 @@
-variable "github_token" {
+variable "GITHUB_TOKEN" {
     description = "GitHub Personal Access Token"
 }
 variable "github_repo" {
@@ -64,4 +64,12 @@ variable "tg_name" {
 
 variable "vpc_id" {
   default = "vpc-095cf746d56c9d4c8"
+}
+
+variable "pipeline_name" {
+  default = "bh-kml-pipeline"
+}
+
+variable "github_owner" {
+  default = "kmlhtpgl"
 }
