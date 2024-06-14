@@ -15,8 +15,8 @@ resource "aws_codepipeline" "codepipeline" {
     action {
       name             = "Source"
       category         = "Source"
-      owner            = "ThirdParty"
-      provider         = "Github"
+      owner            = "AWS"
+      provider         = "CodeStarSourceConnection"
       version          = "2"
       output_artifacts = ["source_output"]
 
@@ -66,12 +66,12 @@ resource "aws_codepipeline" "codepipeline" {
     }
   }
 }
-/*
+
 resource "aws_codestarconnections_connection" "example" {
   name          = "example-connection"
   provider_type = "GitHub"
 }
-*/
+
 resource "aws_s3_bucket" "codepipeline_bucket" {
   bucket = "bh-kml-bucket-2"
 }
