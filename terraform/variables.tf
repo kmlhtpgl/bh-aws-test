@@ -47,7 +47,7 @@ variable "service_name" {
 variable "subnets" {
   description = "List of subnet IDs"
   type        = list(string)
-  default     = ["subnet-074f33a3953c16a25", "subnet-0f12f5ba9b316f936"]
+  default     = ["subnet-0720aca72b8244e5b", "subnet-0c843ae7a8f422eb2"]
 }
 
 variable "container_name" {
@@ -63,7 +63,7 @@ variable "tg_name" {
 }
 
 variable "vpc_id" {
-  default = "vpc-095cf746d56c9d4c8"
+  default = "vpc-0764919cd18276da6"
 }
 
 variable "pipeline_name" {
