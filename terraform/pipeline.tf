@@ -24,7 +24,7 @@ resource "aws_codepipeline" "codepipeline" {
         Owner  = var.github_owner
         Repo   = var.github_repo
         Branch = "main"
-        token = var.GITHUB_TOKEN
+        OAuthToken = var.GITHUB_TOKEN
       }
     }
   }
