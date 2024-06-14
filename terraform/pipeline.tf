@@ -15,8 +15,8 @@ resource "aws_codepipeline" "codepipeline" {
     action {
       name             = "Source"
       category         = "Source"
-      owner            = "AWS"
-      provider         = "CodeStarSourceConnection"
+      owner            = "ThirdParty"
+      provider         = "Github"
       version          = "1"
       output_artifacts = ["source_output"]
 
@@ -24,7 +24,7 @@ resource "aws_codepipeline" "codepipeline" {
         Owner  = var.github_owner
         Repo   = var.github_repo
         Branch = "main"
-        OAuthToken = var.GITHUB_TOKEN
+        token = var.GITHUB_TOKEN
       }
     }
   }
