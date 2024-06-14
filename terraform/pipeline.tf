@@ -73,7 +73,7 @@ resource "aws_codestarconnections_connection" "example" {
 }
 */
 resource "aws_s3_bucket" "codepipeline_bucket" {
-  bucket = "bh-kml-bucket"
+  bucket = "bh-kml-bucket-2"
 }
 
 resource "aws_s3_bucket_public_access_block" "codepipeline_bucket_pab" {
