@@ -16,14 +16,14 @@ resource "aws_codepipeline" "codepipeline" {
       name             = "Source"
       category         = "Source"
       owner            = "ThirdParty"
-      provider         = "Github"
+      provider         = "GitHub"
       version          = "1"
       output_artifacts = ["source_output"]
 
       configuration = {
         Owner  = var.github_owner
         Repo   = var.github_repo
-        Branch = "terraform"
+        Branch = "main"
         OAuthToken = var.GITHUB_TOKEN
       }
     }
